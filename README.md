@@ -1,5 +1,5 @@
 # UESTC--report--template
-提供适用于电子科技大学课程报告的两种latex模板
+提供适用于UESTC课程报告的两种latex模板
 
 兼容Windoes、MacOS系统，推荐使用texstudio进行编译，找到.tex打开后，一键运行编译即可
 
