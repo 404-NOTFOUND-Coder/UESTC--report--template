@@ -1,0 +1,49 @@
+ \cftsetpnumwidth {\widthof {1}-1pt} 
+ \cftsetpnumwidth {\widthof {2}-1pt} 
+ \cftsetpnumwidth {\widthof {3}-1pt} 
+ \cftsetpnumwidth {\widthof {0}-1pt} 
+ \cftsetpnumwidth {\widthof {1}-1pt} 
+ \cftsetpnumwidth {\widthof {I}-1pt} 
+ \cftsetpnumwidth {\widthof {II}-1pt} 
+ \cftsetpnumwidth {\widthof {III}-1pt} 
+ \cftsetpnumwidth {\widthof {IV}-1pt} 
+ \cftsetpnumwidth {\widthof {V}-1pt} 
+ \cftsetpnumwidth {\widthof {VI}-1pt} 
+\setcounter {tocdepth}{-1}
+\contentsline {chapter}{图目录}{VI}{chapter*.4}%
+ \cftsetpnumwidth {\widthof {VII}-1pt} 
+\setcounter {tocdepth}{-1}
+\setcounter {tocdepth}{-1}
+\contentsline {chapter}{表目录}{VII}{chapter*.5}%
+ \cftsetpnumwidth {\widthof {VIII}-1pt} 
+ \cftsetpnumwidth {\widthof {IX}-1pt} 
+ \cftsetpnumwidth {\widthof {X}-1pt} 
+ \cftsetpnumwidth {\widthof {1}-1pt} 
+\setcounter {tocdepth}{2}
+\contentsline {chapter}{\numberline {第一章}绪\hspace {6pt}论}{1}{chapter.1}%
+ \cftsetpnumwidth {\widthof {2}-1pt} 
+ \cftsetpnumwidth {\widthof {3}-1pt} 
+\contentsline {chapter}{\numberline {第二章}相关研究基础}{3}{chapter.2}%
+ \cftsetpnumwidth {\widthof {4}-1pt} 
+\contentsline {chapter}{\numberline {第三章}工作内容xxx}{4}{chapter.3}%
+ \cftsetpnumwidth {\widthof {5}-1pt} 
+\contentsline {chapter}{\numberline {第四章}全文总结与展望}{5}{chapter.4}%
+\setcounter {tocdepth}{0}
+ \cftsetpnumwidth {\widthof {6}-1pt} 
+\contentsline {chapter}{致\hspace {12pt}谢}{6}{chapter*.13}%
+ \cftsetpnumwidth {\widthof {7}-1pt} 
+\setcounter {tocdepth}{2}
+\contentsline {chapter}{\numberline {附录A}xxxx}{7}{appendix.A}%
+\setcounter {tocdepth}{0}
+ \cftsetpnumwidth {\widthof {8}-1pt} 
+\contentsline {chapter}{攻读硕士{}学位期间取得的成果}{8}{appendix*.14}%
+\contentsline {section}{\numberline {1}学术论文}{8}{section.A.1}%
+\contentsline {section}{\numberline {2}发明专利}{8}{section.A.2}%
+ \cftsetpnumwidth {\widthof {9}-1pt} 
+\setcounter {tocdepth}{0}
+\contentsline {chapter}{外文资料原文}{9}{appendix*.15}%
+\contentsline {section}{\numberline {1}Tahoe-LAFS: The Least-Authority File System}{9}{section.A.1}%
+\setcounter {tocdepth}{0}
+ \cftsetpnumwidth {\widthof {10}-1pt} 
+\contentsline {chapter}{外文资料译文}{10}{appendix*.16}%
+\contentsline {section}{\numberline {1}Tahoe-LAFS：最小权限文件系统}{10}{section.A.1}%
