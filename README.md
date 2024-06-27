@@ -1,5 +1,5 @@
 # UESTC--report--template
-提供适用于UESTC课程报告的两种latex模板
+提供适用于UESTC课程报告的三种latex模板以及硕士生毕业论文模板
 
 兼容Windoes、MacOS系统，推荐使用texstudio进行编译，找到.tex打开后，一键运行编译即可
 
@@ -17,3 +17,7 @@
 ![image](https://github.com/wrs-coder/UESTC--report--template/assets/57533406/f147467f-9e06-4115-9e35-6ef0d01fa2f0)
 ![image](https://github.com/wrs-coder/UESTC--report--template/assets/57533406/7dee2bae-202f-48d2-87f8-261efeec861e)
 ![image](https://github.com/wrs-coder/UESTC--report--template/assets/57533406/28e37e33-a945-4639-bd24-f286bbf42137)
+
+#模版三：
+<img width="424" alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/assets/57533406/2681d47d-061a-47c9-8f70-9dcf0681aa4f">
+<img width="424" alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/assets/57533406/bd6ee3cf-907f-48d8-aa97-dbf390028c9f">
