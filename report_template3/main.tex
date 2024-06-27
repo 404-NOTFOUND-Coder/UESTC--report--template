@@ -1,0 +1,61 @@
+%!TeX program = xelatex
+\documentclass[12pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage{ECNUReport}
+
+
+%%-------------------------------正文开始---------------------------%%
+\begin{document}
+
+%%-----------------------封面--------------------%%
+\cover
+\thispagestyle{empty} % 首页不显示页码
+
+%%------------------摘要-------------%%
+\newpage
+
+\begin{abstract}
+
+这里是摘要
+
+\end{abstract}
+
+ 
+\keywords{关键词，在这里}
+
+
+%%--------------------------目录页------------------------%%
+% \newpage
+% \tableofcontents
+
+%%------------------------正文页从这里开始-------------------%
+
+\setcounter{section}{1}
+\section*{正文}
+%让subsection不显示前面的1.
+\renewcommand{\thesubsection}{\arabic{subsection}} 
+
+\subsection{概述}
+
+这里是正文，这里是正文这里是正文这里是正文，这里是正文。
+
+\subsection{第二段}
+世界和平，世界和平
+\subsubsection{Rainfall}
+I see the rain fall！
+
+
+
+
+
+%%----------- 参考文献 -------------------%%
+%在reference.bib文件中填写参考文献，此处自动生成
+%\newpage
+% \begin{thebibliography}{99}  
+
+% \bibitem{ref1}
+% \href{http://www.bjb.cas.cn/zcwj/kjzc/cxzc/202202/t20220210_6354084.html}{京津冀协同发展规划纲要（要点)}
+
+% \end{thebibliography}
+\reference
+
+\end{document}
