@@ -237,26 +237,3 @@ sudo apt install xxx
 
 * Slides模板位于`./slides`目录下，使用时直接参照slides中内容进行修改即可，编译链为xelate->bibtex->xelatex*2
 * 改模板源自overleaf，可直接在overleaf中使用
-
-## 更新日志
-
-* 2022.3.17：新版cls模板提供了分类号、密级、UDC号的设置功能，使用方法如下所示(在main.tex中\begin{document}之前加入，与作者等信息等同)：
-  ![UDC](READMEFig/UDCID.png)
-  * UDC编号查询：https://udcsummary.info/php/index.php?lang=chi&pr=Y
-* 2022.3.17：修正英文封面中学号和姓名顺序错误的问题（对调）
-* 2022.3.17：修正“答辩委员会主席”后下划线长度不足的问题
-* 2022.3.18：增加专业硕士专用封面：
-  * 新增\ProfessionalDegreeArea{}用于设置“专业学位领域”，如下所示：
-  ![UDC](READMEFig/promaster.png)
-* 2022.3.18：修正页眉下划线宽度为0.75磅，修正专硕英文封面学号和姓名顺序
-* 2022.3.27: 章节编号加粗（目录不加粗），目前版本完整适配20220224新标准
-* 2022.4.16: 增加主要符号表，修订缩略词表各栏宽度
-* 2022.5.30: 增加合作导师设置，修正“指导老师”为“指导教师”；默认展示PDF修订为专硕版本
-* 2022.6.30：新增了答辩slides的beamer模板
-* 2023.3.01: bug修复，更新README
-
-## QQ讨论群
-
-建立了QQ群便于讨论和改进模板：
-
-![QQ Group](./READMEFig/QQGroup.jpg)
