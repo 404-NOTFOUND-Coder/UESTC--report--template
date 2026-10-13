@@ -21,3 +21,8 @@
 # 模板三：
 <img width="424" alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/assets/57533406/2681d47d-061a-47c9-8f70-9dcf0681aa4f">
 <img width="424" alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/assets/57533406/bd6ee3cf-907f-48d8-aa97-dbf390028c9f">
+
+## 新增：按场景选择模板
+
+![UESTC 场景模板]
+![Uploading gallery.png…]()
