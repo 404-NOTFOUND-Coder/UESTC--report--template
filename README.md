@@ -23,5 +23,6 @@
 <img width="424" alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/assets/57533406/bd6ee3cf-907f-48d8-aa97-dbf390028c9f">
 
 ## 新增：按场景选择模板
-<img alt="image" src="https://github.com/404-NOTFOUND-Coder/UESTC--report--template/gallery.png">
+<img width="1680" height="720" alt="gallery" src="https://github.com/user-attachments/assets/512be587-a8f6-4326-9222-97445db7063b" />
+
 
