@@ -24,5 +24,3 @@
 
 ## 新增：按场景选择模板
 
-![UESTC 场景模板]
-![Uploading gallery.png…]()
