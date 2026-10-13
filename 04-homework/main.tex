@@ -1,0 +1,48 @@
+% !TeX program = xelatex
+% 使用 XeLaTeX；Fandol 字体随 TeX Live 提供，无需系统字体。
+\documentclass[UTF8,fontset=fandol,a4paper,zihao=5]{ctexart}
+\usepackage{uestcdesign}
+\linespread{1.12}
+% 修改以下字段即可开始写作；含逗号的值请放在花括号内。
+\uestcsetup{
+theme=homework,
+ type=课程作业,english={COURSE ASSIGNMENT / 01},
+ title={线性代数 · 第一周作业},subtitle={矩阵、特征值与二次型},
+ author=张同学,student-id=202600000000,
+ school=信息与通信工程学院,course={高等线性代数},
+ teacher=教师姓名,date={2026 年 10 月 13 日},short-title={第一周作业}
+}
+\begin{document}
+\uestcheading
+\begin{summarybox}[作业要求]
+写出必要推导过程，给出结果并检查。此模板无独立封面，适合短作业、习题解答与随堂报告。
+\end{summarybox}
+\section{特征值与特征向量}
+\textbf{题目：}求矩阵 $A$ 的特征值及对应特征向量。
+\[
+A=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+\textbf{解：}由特征多项式
+\[
+\det(A-\lambda I)=(2-\lambda)^2-1=(\lambda-1)(\lambda-3),
+\]
+得到 $\lambda_1=1$、$\lambda_2=3$。可分别取对应的单位特征向量
+\[
+q_1=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix},\qquad
+q_2=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}.
+\]
+代入 $Aq_i=\lambda_iq_i$ 即可验证，且 $q_1^{\mathsf T}q_2=0$。
+\section{正定性判别}
+\textbf{题目：}判断上题矩阵是否正定，并说明理由。
+
+\textbf{解：}矩阵 $A$ 为实对称矩阵，且两个特征值均大于零，所以 $A$ 正定。也可以通过顺序主子式验证：
+\[
+\Delta_1=2>0,\qquad\Delta_2=\det A=3>0.
+\]
+\section{学习记录}
+\begin{itemize}
+\item 实对称矩阵不同特征值对应的特征向量正交。
+\item 特征向量归一化后，可以组成正交矩阵进行对角化。
+\item 检查答案时，同时验证代数运算与概念使用条件。
+\end{itemize}
+\end{document}

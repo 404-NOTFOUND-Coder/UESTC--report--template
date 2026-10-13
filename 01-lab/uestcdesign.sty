@@ -1,0 +1,123 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uestcdesign}[2026/10/13 UESTC community scenario templates]
+\RequirePackage{iftex}
+\ifXeTeX\else\PackageError{uestcdesign}{Please compile with XeLaTeX}{Select XeLaTeX in your editor.}\fi
+\RequirePackage[margin=25mm,headheight=16pt,headsep=8mm,footskip=12mm]{geometry}
+\RequirePackage{graphicx,xcolor,tikz,amsmath,amssymb,booktabs,tabularx,fancyhdr,enumitem}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{listings}
+\RequirePackage{hyperref}
+\usetikzlibrary{calc}
+\definecolor{uestcblue}{HTML}{123D78}
+\definecolor{ginkgogold}{HTML}{A57525}
+\definecolor{researchgreen}{HTML}{25645E}
+\definecolor{ink}{HTML}{222D3A}
+\definecolor{muted}{HTML}{667384}
+\colorlet{accent}{uestcblue}
+\color{ink}
+\setlength{\parskip}{0.35em}
+\linespread{1.25}
+\setlist{nosep,leftmargin=2em,topsep=0.4em}
+\hypersetup{unicode=true,colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+\ctexset{section={format=\Large\sffamily\bfseries\color{accent},beforeskip=1.2em,afterskip=.6em},subsection={format=\large\sffamily\bfseries,beforeskip=.8em,afterskip=.4em}}
+\newcommand{\DocTitle}{文档标题}
+\newcommand{\DocSubtitle}{副标题}
+\newcommand{\DocAuthor}{张同学}
+\newcommand{\DocID}{202600000000}
+\newcommand{\DocSchool}{信息与通信工程学院}
+\newcommand{\DocCourse}{课程名称}
+\newcommand{\DocTeacher}{教师姓名}
+\newcommand{\DocDate}{2026 年 10 月}
+\newcommand{\DocType}{实验报告}
+\newcommand{\DocEnglish}{LABORATORY REPORT}
+\newcommand{\DocShort}{课程报告}
+\newcommand{\DocTheme}{lab}
+\pgfkeys{/uestc/.is family,/uestc,
+ title/.store in=\DocTitle,subtitle/.store in=\DocSubtitle,
+ author/.store in=\DocAuthor,student-id/.store in=\DocID,
+ school/.store in=\DocSchool,course/.store in=\DocCourse,
+ teacher/.store in=\DocTeacher,date/.store in=\DocDate,
+ type/.store in=\DocType,english/.store in=\DocEnglish,
+ short-title/.store in=\DocShort,
+ theme/.is choice,
+ theme/lab/.code={\def\DocTheme{lab}\colorlet{accent}{uestcblue}},
+ theme/paper/.code={\def\DocTheme{paper}\colorlet{accent}{ginkgogold}},
+ theme/proposal/.code={\def\DocTheme{proposal}\colorlet{accent}{researchgreen}},
+ theme/homework/.code={\def\DocTheme{homework}\colorlet{accent}{ink}}}
+\newcommand{\uestcsetup}[1]{\pgfkeys{/uestc,#1}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{muted}UESTC\quad /\quad\DocType}
+\fancyhead[R]{\small\color{muted}\DocShort}
+\fancyfoot[L]{\footnotesize\color{muted}电子科技大学\quad UNIVERSITY OF ELECTRONIC SCIENCE AND TECHNOLOGY OF CHINA}
+\fancyfoot[R]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\renewcommand{\footrulewidth}{0pt}
+% Original vector ornament: a bilobed fan and radiating veins, not an official mark.
+\newcommand{\ginkgoleaf}[2][accent]{%
+ \begin{scope}[scale=#2]
+ \path[fill=#1!16,draw=#1,line width=.5pt]
+ (0,0) .. controls (-.4,.55) and (-1.4,.7) .. (-1.6,1.4)
+ .. controls (-1.2,1.95) and (-.5,2.05) .. (-.12,1.55)
+ .. controls (-.06,1.47) and (.06,1.47) .. (.12,1.55)
+ .. controls (.5,2.05) and (1.2,1.95) .. (1.6,1.4)
+ .. controls (1.4,.7) and (.4,.55) .. (0,0);
+ \foreach \x/\y in {-1.4/1.4,-1.05/1.68,-.65/1.8,-.28/1.65,.28/1.65,.65/1.8,1.05/1.68,1.4/1.4}
+ {\draw[#1,opacity=.5,line width=.35pt] (0,0) .. controls (\x*.3,.7) .. (\x,\y);}
+ \draw[#1,line width=.8pt] (0,0) .. controls (.04,-.2) .. (.24,-.55);
+ \end{scope}}
+\newcommand{\schoolbrand}{%
+ \noindent\begin{minipage}{18mm}\includegraphics[width=16mm]{assets/uestc-logo.pdf}\end{minipage}%
+ \begin{minipage}{.78\linewidth}{\Large\sffamily\bfseries 电子科技大学}\\[3pt]
+ {\scriptsize\sffamily UNIVERSITY OF ELECTRONIC SCIENCE\\AND TECHNOLOGY OF CHINA}\end{minipage}}
+\newcommand{\covermeta}{%
+ {\renewcommand{\arraystretch}{1.65}\begin{tabularx}{.85\linewidth}{@{}>{\leavevmode\color{muted}}p{25mm}X@{}}
+ 课程 / 项目 & \DocCourse\\
+ 学院 & \DocSchool\\
+ 姓名 / 学号 & \DocAuthor\quad /\quad \DocID\\
+ 指导教师 & \DocTeacher\\
+ 提交日期 & \DocDate\\
+ \end{tabularx}}}
+\newcommand{\covertitle}{%
+ {\small\sffamily\bfseries\color{accent}\DocEnglish\par}\vspace{7mm}
+ {\fontsize{32}{42}\selectfont\sffamily\bfseries\DocType\par}\vspace{9mm}
+ {\fontsize{23}{33}\selectfont\bfseries\DocTitle\par}\vspace{5mm}
+ {\large\color{muted}\DocSubtitle\par}}
+\newcommand{\uestccover}{%
+ \hypersetup{pageanchor=false}
+ \begin{titlepage}
+ \begin{tikzpicture}[remember picture,overlay]
+ \ifnum\pdfstrcmp{\DocTheme}{lab}=0
+  \fill[accent!5] ([yshift=-52mm]current page.north west) rectangle ([yshift=-145mm]current page.north east);
+  \fill[accent] (current page.north west) rectangle ([xshift=8mm]current page.south west);
+  \begin{scope}[shift={([xshift=-39mm,yshift=42mm]current page.south east)},rotate=-12]\ginkgoleaf[accent]{1.45}\end{scope}
+ \else\ifnum\pdfstrcmp{\DocTheme}{paper}=0
+  \draw[accent,line width=.5pt] ([xshift=13mm,yshift=-13mm]current page.north west) rectangle ([xshift=-13mm,yshift=13mm]current page.south east);
+  \begin{scope}[shift={([xshift=-43mm,yshift=-87mm]current page.north east)},rotate=16]\ginkgoleaf[accent]{1.6}\end{scope}
+ \else
+  \fill[accent] ([yshift=-9mm]current page.north west) rectangle (current page.north east);
+  \draw[accent!35,line width=.6pt] ([xshift=25mm,yshift=43mm]current page.south west) -- ([xshift=-25mm,yshift=43mm]current page.south east);
+  \begin{scope}[shift={([xshift=-40mm,yshift=55mm]current page.south east)},rotate=-18]\ginkgoleaf[accent]{1.15}\end{scope}
+ \fi\fi
+ \end{tikzpicture}
+ \schoolbrand\par\vspace{30mm}
+ \begin{minipage}{.91\linewidth}\covertitle\end{minipage}
+ \vfill\covermeta\par\vspace{17mm}
+ {\small\sffamily\color{accent}求实求真\quad 大气大为}\par
+ \vspace{3mm}{\scriptsize\color{muted}UESTC COMMUNITY TEMPLATES\quad /\quad 2026}
+ \end{titlepage}\setcounter{page}{1}\hypersetup{pageanchor=true}}
+\newcommand{\uestcheading}{%
+ \schoolbrand\par\vspace{7mm}
+ {\small\sffamily\color{muted}\DocEnglish\par}\vspace{2mm}
+ {\LARGE\bfseries\DocTitle\par}\vspace{2mm}
+ {\color{muted}\DocCourse\quad /\quad\DocDate\par}
+ \vspace{3mm}\noindent\rule{\linewidth}{.7pt}\par
+ {\small\DocAuthor\quad 学号：\DocID\quad 教师：\DocTeacher\par}\vspace{4mm}}
+\newtcolorbox{summarybox}[1][要点]{enhanced,breakable,colback=accent!4,colframe=accent!35,
+ boxrule=.4pt,arc=0mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+ title=#1,colbacktitle=accent!9,coltitle=ink,fonttitle=\bfseries}
+\lstset{basicstyle=\small\ttfamily,keywordstyle=\color{accent}\bfseries,
+ commentstyle=\color{muted},frame=single,rulecolor=\color{accent!25},
+ backgroundcolor=\color{accent!3},breaklines=true,columns=fullflexible,
+ keepspaces=true,showstringspaces=false,aboveskip=1em,belowskip=1em}
+\newcommand{\keywords}[1]{\par\noindent\textbf{关键词：}#1\par}
+\AtBeginDocument{\hypersetup{pdftitle={\DocTitle},pdfauthor={\DocAuthor}}}

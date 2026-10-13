@@ -1,0 +1,63 @@
+% !TeX program = xelatex
+% 使用 XeLaTeX；Fandol 字体随 TeX Live 提供，无需系统字体。
+\documentclass[UTF8,fontset=fandol,a4paper,zihao=-4]{ctexart}
+\usepackage{uestcdesign}
+% 修改以下字段即可开始写作；含逗号的值请放在花括号内。
+\uestcsetup{
+theme=paper,
+ type=课程论文,english={COURSE PAPER},
+ title={面向边缘设备的轻量化推理},subtitle={方法比较与系统约束分析},
+ author=张同学,student-id=202600000000,
+ school=信息与通信工程学院,course={人工智能前沿},
+ teacher=教师姓名,date={2026 年 10 月 13 日},short-title={轻量化推理}
+}
+\begin{document}
+\uestccover
+\begin{abstract}
+边缘设备的推理任务同时受到计算资源、存储空间和响应时间约束。本文以课程论文写作为场景，演示摘要、章节结构、方法比较、公式、交叉引用与参考文献的排版方式。示例仅提供讨论框架，不包含真实实验结论。使用时应将研究问题、方法、证据和局限替换为自己的内容。
+\end{abstract}
+\keywords{边缘计算；轻量化模型；推理效率}
+\section{引言}
+模型设计需要同时考虑预测质量和部署条件。MobileNetV2 提出了倒残差与线性瓶颈结构\cite{sandler2018}，为轻量化网络设计提供了一个可讨论的实例。
+本文围绕如下问题组织论述：在给定设备预算下，应如何比较候选模型？评价应同时报告性能、资源消耗与测量条件。
+\section{问题定义}
+将部署预算形式化为约束优化问题：
+\begin{equation}\label{eq:budget}
+\min_{\theta}\ \mathcal{L}(\theta)\quad
+\text{s.t.}\quad T(\theta)\leq T_{\max},\quad M(\theta)\leq M_{\max}.
+\end{equation}
+其中 $\theta$ 为模型参数，$T$ 为指定设备上的推理延迟，$M$ 为存储或内存开销。式\eqref{eq:budget}中的测量口径应在实验设置中明确。
+\section{方法比较}
+\begin{table}[htbp]\centering
+\caption{候选方案的分析维度（待验证的比较框架）}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
+方案 & 关注的问题 & 需要报告的证据\\\midrule
+结构设计 & 算子是否适合目标硬件 & 实际设备的延迟分布\\
+量化 & 低精度是否影响任务质量 & 精度变化与模型大小\\
+剪枝 & 稀疏性是否带来实际收益 & 推理后端与实测加速比\\\bottomrule
+\end{tabularx}
+\end{table}
+\clearpage
+\section{实验设计与讨论}
+\subsection{公平比较的条件}
+固定数据划分、输入尺寸、批大小和推理后端。预热后进行重复测量，报告测量次数与离散程度；避免将不同硬件的结果直接放在同一排名中。
+\subsection{结果图示的组织方式}
+图\ref{fig:route}给出矢量流程图示例。可替换为自己的系统结构图。模板也支持引入 PDF、PNG 和 JPEG 图片。
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}[node distance=6mm,every node/.style={draw=accent!45,fill=accent!4,minimum width=35mm,minimum height=12mm,font=\small}]
+\node (a) at (0,0) {模型与数据};
+\node (b) at (4.5,0) {目标设备测量};
+\node (c) at (9,0) {性能与资源比较};
+\draw[->,thick,accent] (a)--(b);\draw[->,thick,accent] (b)--(c);
+\end{tikzpicture}
+\caption{实验评估流程示意}\label{fig:route}
+\end{figure}
+\begin{summarybox}[写作提示]
+讨论应解释结果为什么发生、适用于哪些条件，以及尚未解决的问题。不得把本文中的比较框架作为已经完成的实验结果。
+\end{summarybox}
+\section{结论与局限}
+以研究问题为中心归纳发现，说明证据支持的范围。可进一步讨论跨设备泛化、能耗测量和长期运行条件等限制。
+\begin{thebibliography}{9}
+\bibitem{sandler2018} Sandler M, Howard A, Zhu M, et al. MobileNetV2: Inverted Residuals and Linear Bottlenecks. Proceedings of CVPR, 2018: 4510--4520.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,71 @@
+% !TeX program = xelatex
+% 使用 XeLaTeX；Fandol 字体随 TeX Live 提供，无需系统字体。
+\documentclass[UTF8,fontset=fandol,a4paper,zihao=-4]{ctexart}
+\usepackage{uestcdesign}
+% 修改以下字段即可开始写作；含逗号的值请放在花括号内。
+\uestcsetup{
+theme=lab,
+ type=实验报告,english={LABORATORY REPORT},
+ title={离散信号的采样与重建},subtitle={从理论推导到实验验证},
+ author=张同学,student-id=202600000000,
+ school=信息与通信工程学院,course={数字信号处理},
+ teacher=教师姓名,date={2026 年 10 月 13 日},short-title={采样与重建}
+}
+\begin{document}
+\uestccover
+\begin{summarybox}[实验概览]
+\textbf{目标：}理解采样频率与混叠的关系，完成正弦信号采样与重建。\\
+\textbf{环境：}Python 3、NumPy；采样时长 1 s。\\
+\textbf{说明：}本文件是排版示例，表中数值为演示数据，不代表真实实验结果。
+\end{summarybox}
+\section{实验目的与原理}
+对连续时间信号进行离散采样时，应先明确有效带宽和采样频率。对于频率为 $f_0$ 的正弦信号，采样序列为
+\begin{equation}\label{eq:sample}
+x[n]=\sin\left(2\pi f_0\frac{n}{f_s}\right),\qquad n=0,1,\ldots,N-1.
+\end{equation}
+本实验取 $f_0=5\,\mathrm{Hz}$，比较不同 $f_s$ 下的离散波形。理想带限条件下，采样频率应严格高于最高频率的两倍。
+\section{实验步骤}
+\begin{enumerate}
+\item 生成连续信号的高密度参考序列，记录信号频率与幅值。
+\item 设置三组采样频率，使用式\eqref{eq:sample}构造离散序列。
+\item 比较时域采样点，检查是否出现混叠并记录结果。
+\item 保存代码、环境版本和数据，便于复现实验。
+\end{enumerate}
+\section{观测与分析}
+\begin{table}[htbp]\centering
+\caption{实验记录格式示例（演示数据）}\label{tab:lab}
+\begin{tabularx}{\linewidth}{@{}rrX@{}}\toprule
+信号频率 / Hz & 采样频率 / Hz & 观察与解释\\\midrule
+5 & 8 & 不满足采样条件，存在混叠风险。\\
+5 & 20 & 满足理想带限信号的采样条件。\\
+5 & 50 & 时域采样点更密集，便于观察波形。\\\bottomrule
+\end{tabularx}
+\end{table}
+表\ref{tab:lab}展示了适合记录实验条件的三线表。分析时应区分理论条件、实际观测与误差来源，避免只给出结论。
+\clearpage
+\section{可复现代码}
+以下代码生成采样序列；可替换成自己的实验程序。模板不需要开启 shell escape。
+\begin{lstlisting}[language=Python]
+import numpy as np
+
+f0, fs = 5.0, 50.0
+n = np.arange(int(fs))
+x = np.sin(2 * np.pi * f0 * n / fs)
+print("Samples:", len(x))
+\end{lstlisting}
+\section{误差来源与改进}
+\subsection{有限长度与边界条件}
+有限观测窗口可能使频谱估计产生泄漏。需要说明所用窗口函数及频率分辨率，不能把数值现象直接等同于物理规律。
+\subsection{设备与测量误差}
+在硬件实验中，应记录采集设备、量化精度、时钟误差和抗混叠滤波条件，并对重复测量结果进行统计。
+\begin{summarybox}[实验结论]
+用一段话回答实验目标，再给出支持结论的观测证据。提交前请替换全部示例数据、个人信息与环境配置。
+\end{summarybox}
+\appendix
+\section{提交清单}
+\begin{itemize}
+\item 原始数据、完整代码与环境说明；
+\item 带有单位的表格和清晰的图注；
+\item 实验条件、误差分析及复现步骤。
+\end{itemize}
+\end{document}

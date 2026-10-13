@@ -1,0 +1,64 @@
+% !TeX program = xelatex
+% 使用 XeLaTeX；Fandol 字体随 TeX Live 提供，无需系统字体。
+\documentclass[UTF8,fontset=fandol,a4paper,zihao=-4]{ctexart}
+\usepackage{uestcdesign}
+% 修改以下字段即可开始写作；含逗号的值请放在花括号内。
+\uestcsetup{
+theme=proposal,
+ type=研究计划,english={RESEARCH PROPOSAL},
+ title={低功耗感知系统设计},subtitle={问题定义、技术路线与阶段安排},
+ author=张同学,student-id=202600000000,
+ school=信息与通信工程学院,course={科研训练项目},
+ teacher=教师姓名,date={2026 年 10 月 13 日},short-title={低功耗感知}
+}
+\begin{document}
+\uestccover
+\begin{summarybox}[项目摘要]
+\textbf{研究问题：}如何在有限电池容量下持续采集环境信息？\\
+\textbf{拟议方法：}分析系统能耗，联合设计采样周期与通信策略。\\
+\textbf{预期产出：}可复现实验原型、测量数据、研究报告。\\
+\textbf{性质：}这是研究计划书的示例框架，目标均需通过实际实验验证。
+\end{summarybox}
+\section{研究背景与问题}
+感知节点在采集、处理、传输和休眠阶段具有不同功耗。单纯降低某一模块的功率，未必降低完整任务的能量消耗。因此需要明确工作负载和测量边界。
+\section{研究目标与评价指标}
+\noindent\begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
+目标 & 评价指标 & 验证方式\\\midrule
+降低能耗 & 单次任务能量 & 电流与电压同步测量\\
+保持可靠性 & 数据完整率 & 丢包与异常记录\\
+控制响应时间 & 端到端延迟 & 统一时钟下记录时间戳\\\bottomrule
+\end{tabularx}
+\section{技术路线}
+\begin{enumerate}
+\item \textbf{建立基线：}固定采样周期，记录各工作阶段的时间与功率。
+\item \textbf{定位瓶颈：}根据能量积分比较采集、计算、通信的贡献。
+\item \textbf{提出策略：}设计自适应采样与批量传输方案。
+\item \textbf{验证假设：}在相同负载和环境条件下比较基线与改进方案。
+\end{enumerate}
+\begin{equation}
+E_{\mathrm{task}}=\int_0^{T} U(t)I(t)\,\mathrm{d}t.
+\end{equation}
+应明确测量点是在电池侧还是模块侧，以及是否包含外围设备能耗。
+\clearpage
+\section{阶段计划与里程碑}
+\begin{table}[htbp]\centering
+\caption{八周研究安排示例}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
+阶段 & 工作内容 & 可检查的产出\\\midrule
+第 1--2 周 & 梳理文献，明确测量口径 & 相关工作表、问题定义\\
+第 3--4 周 & 搭建系统并测量基线 & 硬件清单、基线数据\\
+第 5--6 周 & 实现策略，进行对比实验 & 代码、实验日志\\
+第 7--8 周 & 分析结果，整理复现材料 & 报告、数据与演示\\\bottomrule
+\end{tabularx}
+\end{table}
+\section{风险与备选方案}
+\subsection{设备交付或测量条件受限}
+先以开发板和合成负载验证流程，记录其与最终实验条件的差别；替代实验的结论不直接外推到目标系统。
+\subsection{改进效果不明显}
+保留无效实验并分析瓶颈，检查策略引入的额外开销，调整研究假设或缩小适用范围。
+\section{资源与预期成果}
+需要具备电流测量条件的供电设备、开发板和数据存储空间。成果包括系统说明、源代码、数据字典及复现步骤。
+\begin{summarybox}[阶段验收]
+每个里程碑同时检查“是否完成”和“是否有证据”。当条件发生变化时，记录调整原因、影响范围和新的交付时间。
+\end{summarybox}
+\end{document}
